@@ -1,0 +1,23 @@
+<div class="row d-flex justify-content-center align-items-center" style="height: 85vh; width: 100%;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 p-3">
+        <form #loginForm="ngForm" (ngSubmit)="login()" class="border shadow p-4">
+            <h1 class="text-center mb-4" style="color: rgb(93, 70, 70);">Login Form</h1>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Email" name="loginmail" [(ngModel)]="loginEmail"
+                    email required #loginMail="ngModel">
+                <span *ngIf="loginMail.invalid && loginMail.touched" class="text-danger">Invalid Input</span>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Password" name="loginpswd" [(ngModel)]="loginPswd"
+                    required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}$" #loginPd="ngModel">
+                <span *ngIf="loginPd.invalid && loginPd.touched" class="text-danger">Invalid Input</span>
+            </div>
+            <div class="mb-3">
+                <button [disabled]="loginForm.invalid" type="submit" class="btn btn-dark w-100">Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
